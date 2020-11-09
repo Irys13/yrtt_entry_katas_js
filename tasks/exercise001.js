@@ -7,8 +7,17 @@
 
 function singles(arr){
     if (arr === undefined) throw new Error("array is required");
-    // Your code here!
+
+    let duplicateValues = arr.filter((value, index) => arr.indexOf(value) !== index);
+   
+    let uniqueValues = arr.filter((d) => !duplicateValues.includes(d));
+
+    let sumOfArray = uniqueValues.reduce((a, b) => a + b, 0);
+
+    return sumOfArray;
 }
+
+singles([4,5,7,5,4,8]);
 
 module.exports = {
     singles
